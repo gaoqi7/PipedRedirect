@@ -61,11 +61,22 @@ To configure the extension:
 4. Toggle the `Enable Automatic Redirection` checkbox to enable or disable automatic redirection of YouTube video pages when opening a new tab.
 5. Click `Save` to save your preferences.
 
+### Build-time Default Hostname
+
+You can set a custom default hostname at build time using a local `.env` file:
+
+```
+PIPED_HOSTNAME=piped.gaoqi7.synology.me
+```
+
+This file is ignored by git. The build script will replace `piped.kavin.rocks` in the output zip with your value.
+
 ## How to build
 
 1. Install node and npm
 2. Execute `npm install` to install packages
-3. Execute `node build.js` to produce chrome and firefox extensions as zip, then import
+3. (Optional) Create a `.env` file with `PIPED_HOSTNAME=your.instance.host`
+4. Execute `node build.js` to produce chrome and firefox extensions as zip, then import
 
 ## TODOs
 
