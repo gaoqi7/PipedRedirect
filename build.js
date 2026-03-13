@@ -83,5 +83,8 @@ const hostname =
     ? env.PIPED_HOSTNAME.trim()
     : DEFAULT_HOSTNAME
 
+const buildDir = path.join(__dirname, 'build')
+fs.rmSync(path.join(buildDir, 'firefox'), { recursive: true, force: true })
+fs.rmSync(path.join(buildDir, 'firefox.zip'), { force: true })
+
 createZip('chrome', hostname)
-createZip('firefox', hostname)

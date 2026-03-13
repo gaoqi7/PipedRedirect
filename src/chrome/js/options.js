@@ -1,19 +1,23 @@
 function normalizeHostname(input) {
-  const fallback = 'piped.kavin.rocks'
-  if (!input || typeof input !== 'string') return fallback
-  const trimmed = input.trim()
-  if (!trimmed) return fallback
+  const defaultHostname = 'piped.kavin.rocks'
+  const fallback =
+    typeof defaultHostname === 'string' && defaultHostname.trim()
+      ? defaultHostname.trim()
+      : 'piped.kavin.rocks'
+  const candidate = typeof input === 'string' && input.trim() ? input.trim() : fallback
 
   try {
-    if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
-      return new URL(trimmed).host || fallback
-    }
-    if (trimmed.includes('/')) {
-      return new URL(`https://${trimmed}`).host || fallback
-    }
-    return trimmed
+    const parsed =
+      candidate.startsWith('http://') || candidate.startsWith('https://')
+        ? new URL(candidate)
+        : new URL(`https://${candidate}`)
+    return parsed.host || fallback
   } catch (e) {
-    return fallback
+    try {
+      return new URL(`https://${fallback}`).host || 'piped.kavin.rocks'
+    } catch (innerError) {
+      return 'piped.kavin.rocks'
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 # Piped Redirect Extension
 
-The Piped Redirect extension allows users to redirect YouTube links to a [Piped](https://github.com/TeamPiped/Piped) instance either through a context menu option, a popup button, or automatically based on their preferences. This project contains the implementation for both Chrome (also compatible with Opera) and Firefox.
+The Piped Redirect extension allows users to redirect YouTube links to a [Piped](https://github.com/TeamPiped/Piped) instance either through a context menu option, a popup button, or automatically based on their preferences. This project contains the implementation for Chrome (also compatible with Opera).
 The idea came, because I wanted to enjoy the YouTube recommendation algorithm but bypass the new AdBlock Warning.
 
 # INFORMATION
@@ -20,13 +20,6 @@ To install this extension on your browser, follow these steps:
 4. Click on Install.
 
 
-### Firefox
-
-1. Goto Releases and download the newest version.
-2. Open Firefox and navigate to `about:addons`.
-3. Click on the gear icon and select `Install Add-On From File...` and select the `.xpi` file.
-4. Naviagte to `www.youtube.com`, click on `Manage Extension` and `Always allow on youtube.com`. Otherwise the automatic redirection does not work.
-
 ## Installation (Temporary Only)
 
 To install this extension on your browser, follow these steps:
@@ -37,12 +30,6 @@ To install this extension on your browser, follow these steps:
 2. Open the Chrome/Opera browser and navigate to `chrome://extensions/`.
 3. Enable `Developer mode` by toggling the switch on the top right corner.
 4. Click `Load unpacked` and select the `chrome` folder from the extracted project files.
-
-### Firefox
-
-1. Download the project files and extract the zip file.
-2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
-3. Click `Load Temporary Add-on...` and select the `manifest.json` within the `firefox` folder from the extracted project files.
 
 ## Features
 
@@ -76,7 +63,7 @@ This file is ignored by git. The build script will replace `piped.kavin.rocks` i
 1. Install node and npm
 2. Execute `npm install` to install packages
 3. (Optional) Create a `.env` file with `PIPED_HOSTNAME=your.instance.host`
-4. Execute `node build.js` to produce chrome and firefox extensions as zip, then import
+4. Execute `node build.js` to produce the chrome extension as zip, then import
 
 ## TODOs
 
